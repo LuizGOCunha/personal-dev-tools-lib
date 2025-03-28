@@ -1,2 +1,2 @@
-from .payload_analyzer import payload_analyzer
-from .payload_seeker import payload_seeker
+from .payload_analyzer import analyzer
+from .payload_seeker import seeker
