@@ -1,4 +1,4 @@
-def seeker(target_maze, target_value, _index_map=None):
+def payload_seeker(target_maze, target_value, _index_map=None):
     if _index_map is None:
         _index_map = []
     if target_maze == target_value:
@@ -8,7 +8,7 @@ def seeker(target_maze, target_value, _index_map=None):
             _index_map.append(index)
             if target_value == key or target_value == value:
                 return _index_map
-            if result := seeker(value, target_value, _index_map):
+            if result := payload_seeker(value, target_value, _index_map):
                 return result
             _index_map.pop()
     if isinstance(target_maze, list):
@@ -16,7 +16,7 @@ def seeker(target_maze, target_value, _index_map=None):
             _index_map.append(index)
             if target_value == value:
                 return _index_map
-            if result := seeker(value, target_value, _index_map):
+            if result := payload_seeker(value, target_value, _index_map):
                 return result
             _index_map.pop()
 
@@ -30,4 +30,4 @@ if __name__ == "__main__":
         "c": {"z": 10, "x": 20, "c": 30},
         "d": {"z": [100, 200, 300, 400, 500], "x": [11, 22, 33, 44, 55], "c": [101, 202, 303, 404, 505]},
     }
-    x = seeker(ex, 101)
+    x = payload_seeker(ex, 101)
